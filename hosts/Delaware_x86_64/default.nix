@@ -15,6 +15,8 @@
     # ./users.nix
     ../common/users/kent
     ../common/users/nas
+    
+    ../common/global
 
     # Import your generated (nixos-generate-config) hardware configuration
     ./hardware-configuration.nix
