@@ -8,11 +8,12 @@
       parts = builtins.split "_(.*)" name;
       hostname = builtins.elemAt parts 0;
       system = builtins.elemAt parts 1 + "-linux";
-    in nixpkgs.lib.nixosSystem {
+    in 
+    hostconfig = nixpkgs.lib.nixosSystem {
       inherit system;
       modules = [
-        "${self}/hosts/${name}/configuration.nix"
-        "${self}/hosts/${name}/hardware-configuration.nix"
+        "./hosts/${name}/configuration.nix"
+        "./hosts/${name}/hardware-configuration.nix"
       ];
     }) (builtins.readDir "${self}/hosts");
   };
